@@ -1,65 +1,42 @@
-$(function () {
 
-    $("#contactForm input, #contactForm textarea").jqBootstrapValidation({
-        preventSubmit: true,
-        submitError: function ($form, event, errors) {
-        },
-        submitSuccess: function ($form, event) {
-            event.preventDefault();
-            var name = $("input#name").val();
-            var email = $("input#email").val();
-            var subject = $("input#subject").val();
-            var message = $("textarea#message").val();
+    async function sendEmail(event) {
+        event.preventDefault(); // Prevent the form from submitting the default way
 
-            $this = $("#sendMessageButton");
-            $this.prop("disabled", true);
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
 
-            $.ajax({
-                url: "contact.php",
-                type: "POST",
-                data: {
-                    name: name,
-                    email: email,
-                    subject: subject,
-                    message: message
+        // Create an object to hold the data
+        const formData = {
+            name: name,
+            email: email,
+            subject: subject,
+            message: message
+        };
+
+        try {
+            // Send data to the backend (you'll need to implement the backend)
+            const response = await fetch('https://your-backend-url/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
                 },
-                cache: false,
-                success: function () {
-                    $('#success').html("<div class='alert alert-success'>");
-                    $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-                            .append("</button>");
-                    $('#success > .alert-success')
-                            .append("<strong>Your message has been sent. </strong>");
-                    $('#success > .alert-success')
-                            .append('</div>');
-                    $('#contactForm').trigger("reset");
-                },
-                error: function () {
-                    $('#success').html("<div class='alert alert-danger'>");
-                    $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-                            .append("</button>");
-                    $('#success > .alert-danger').append($("<strong>").text("Sorry " + name + ", it seems that our mail server is not responding. Please try again later!"));
-                    $('#success > .alert-danger').append('</div>');
-                    $('#contactForm').trigger("reset");
-                },
-                complete: function () {
-                    setTimeout(function () {
-                        $this.prop("disabled", false);
-                    }, 1000);
-                }
+                body: JSON.stringify(formData)
             });
-        },
-        filter: function () {
-            return $(this).is(":visible");
-        },
-    });
 
-    $("a[data-toggle=\"tab\"]").click(function (e) {
-        e.preventDefault();
-        $(this).tab("show");
-    });
-});
-
-$('#name').focus(function () {
-    $('#success').html('');
-});
+            if (response.ok) {
+                // If the response is OK, show a success message
+                document.getElementById('success').innerHTML = '<div class="alert alert-success">Your details are saved successfully.</div>';
+                // Clear the form
+                document.getElementById('contactForm').reset();
+            } else {
+                // If there's an error, show an error message
+                document.getElementById('success').innerHTML = '<div class="alert alert-danger">There was an error sending your message. Please try again later.</div>';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById('success').innerHTML = '<div class="alert alert-danger">There was an error sending your message. Please try again later.</div>';
+        }
+    }
