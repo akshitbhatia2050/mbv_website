@@ -408,39 +408,49 @@
                 </div>
             </div>
         </div>
-		<script>
-    document.getElementById("sendMessageButton").addEventListener("click", function () {
+	<script>
+    async function sendEmail(event) {
+        event.preventDefault(); // Prevent the form from submitting the default way
+
         // Get form values
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const subject = document.getElementById("subject").value;
-        const message = document.getElementById("message").value;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
 
-        // Validate fields
-        if (!name || !email || !subject || !message) {
-            alert("Please fill in all fields.");
-            return;
+        // Create an object to hold the data
+        const formData = {
+            name: name,
+            email: email,
+            subject: subject,
+            message: message
+        };
+
+        try {
+            // Send data to the backend (you'll need to implement the backend)
+            const response = await fetch('https://your-backend-url/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                // If the response is OK, show a success message
+                document.getElementById('success').innerHTML = '<div class="alert alert-success">Your details are saved successfully.</div>';
+                // Clear the form
+                document.getElementById('contactForm').reset();
+            } else {
+                // If there's an error, show an error message
+                document.getElementById('success').innerHTML = '<div class="alert alert-danger">There was an error sending your message. Please try again later.</div>';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById('success').innerHTML = '<div class="alert alert-danger">There was an error sending your message. Please try again later.</div>';
         }
-
-        // Prepare CSV content
-        const csvHeader = ["Name", "Email", "Subject", "Message"];
-        const csvData = [name, email, subject, message];
-        const csvContent = [csvHeader.join(","), csvData.join(",")].join("\n");
-
-        // Create a Blob and download the CSV file
-        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = "contact_details.csv";
-
-        // Trigger the download
-        link.click();
-        alert("Details saved successfully as CSV.");
-    });
-</script>
-    </div>
-    <!-- Contact End -->
-
+    }
+	</script>
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-md-5" style="margin-top: 90px;">
