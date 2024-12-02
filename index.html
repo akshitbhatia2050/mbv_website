@@ -42,14 +42,14 @@
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="service.html" class="nav-item nav-link">Services</a>
                     <a href="project.html" class="nav-item nav-link">Projects</a>
-		    <div class="nav-item dropdown">
+                    <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="team.html" class="dropdown-item">Meat The Team</a>
                             <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         </div>
-		    </div>
-                    <div class="nav-item dropdown">
+                    </div>
+					<div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Games</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="snake.html" class="dropdown-item">Snake game</a>
@@ -73,6 +73,7 @@
     </div>
     <!-- Navbar End -->
 
+
     <!-- Header Start -->
     <div class="container-fluid bg-primary py-5 px-0" style="margin-bottom: 90px;">
         <div class="row mx-0 align-items-center">
@@ -87,6 +88,7 @@
         </div>
     </div>
     <!-- Header End -->
+
 
     <!-- About Start -->
     <div class="container-fluid py-5">
@@ -106,6 +108,7 @@
     </div>
     <!-- About End -->
     
+
     <!-- Services Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
@@ -143,6 +146,7 @@
         </div>
     </div>
     <!-- Services End -->
+
 
     <!-- Portfolio Start -->
     <div class="container-fluid py-5">
@@ -229,6 +233,8 @@
     </div>
     <!-- Portfolio End -->
 
+
+
     <!-- Team Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
@@ -236,7 +242,7 @@
             <div class="owl-carousel team-carousel position-relative" style="padding-left: 30px;">
                 <div class="team-item rounded overflow-hidden">
                     <div class="position-relative">
-                        <img class="img-fluid w-100" src="img/team-5.png" alt="">
+                        <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
                         <div class="team-overlay">
                             <div class="d-flex align-items-center justify-content-start">
                                 <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="https://t.me/BLACKMAMBA_HU_VRO"><i class="fab fa-telegram"></i></a>
@@ -262,7 +268,7 @@
                         <p class="m-0">Designer</p>
                     </div>
                 </div>
-		<div class="team-item rounded overflow-hidden">
+				<div class="team-item rounded overflow-hidden">
                     <div class="position-relative">
                         <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
                         <div class="team-overlay">
@@ -278,20 +284,6 @@
                 </div>
                 <div class="team-item rounded overflow-hidden">
                     <div class="position-relative">
-                        <img class="img-fluid w-100" src="img/team-4.png" alt="">
-                        <div class="team-overlay">
-                            <div class="d-flex align-items-center justify-content-start">
-                                <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="https://t.me/Radhekrishn14"><i class="fab fa-telegram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-light text-center p-4">
-                        <h4 class="text-uppercase">Ujjwal Verma</h4>
-                        <p class="m-0">Video Editor | Graphics Designer</p>
-                    </div>
-		</div>
-                <div class="team-item rounded overflow-hidden">
-                    <div class="position-relative">
                         <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
                         <div class="team-overlay">
                             <div class="d-flex align-items-center justify-content-start">
@@ -304,6 +296,20 @@
                         <p class="m-0">Developer</p>
                     </div>
                 </div>
+				<div class="team-item rounded overflow-hidden">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/team-4.png" alt="">
+                        <div class="team-overlay">
+                            <div class="d-flex align-items-center justify-content-start">
+                                <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="https://t.me/Radhekrishn14"><i class="fab fa-telegram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-light text-center p-4">
+                        <h4 class="text-uppercase">Ujjwal Verma</h4>
+                        <p class="m-0">Video Editor | Graphics Designer</p>
+                    </div>
+		</div>
                 <div class="team-item rounded overflow-hidden">
                     <div class="position-relative">
                         <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
@@ -358,6 +364,7 @@
     </div>
     <!-- Testimonial End -->
 
+
     <!-- Contact Start -->
     <div class="container-fluid py-5 px-0">
         <div class="row mt-5 mx-0">
@@ -409,8 +416,41 @@
                 </div>
             </div>
         </div>
+		<script>
+    document.getElementById("sendMessageButton").addEventListener("click", function () {
+        // Get form values
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const subject = document.getElementById("subject").value;
+        const message = document.getElementById("message").value;
 
-     <!-- Footer Start -->
+        // Validate fields
+        if (!name || !email || !subject || !message) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        // Prepare CSV content
+        const csvHeader = ["Name", "Email", "Subject", "Message"];
+        const csvData = [name, email, subject, message];
+        const csvContent = [csvHeader.join(","), csvData.join(",")].join("\n");
+
+        // Create a Blob and download the CSV file
+        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "contact_details.csv";
+
+        // Trigger the download
+        link.click();
+        alert("Details saved successfully as CSV.");
+    });
+</script>
+    </div>
+    <!-- Contact End -->
+
+
+    <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-md-5" style="margin-top: 90px;">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
@@ -488,4 +528,4 @@
     <script src="js/main.js"></script>
 </body>
 
-</html>
+	</html>
