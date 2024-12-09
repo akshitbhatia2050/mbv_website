@@ -24,6 +24,47 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+	<style>
+        /* Dropdown Menu CSS */
+        .dropdown-menu {
+            display: none; /* Initially hidden */
+            position: absolute;
+            left: 0;
+            top: 100%;
+            z-index: 1000;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown.show > .dropdown-menu {
+            display: block; /* Show menu when the dropdown is active */
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu > .dropdown-menu {
+            left: 100%;
+            top: 0;
+        }
+
+        .dropdown-submenu.show > .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 8px 16px;
+            text-decoration: none;
+            color: black;
+            display: block;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f1f1f1;
+        }
+	</style>
 </head>
 
 <body>
@@ -42,23 +83,6 @@
                     <a href="service.html" class="nav-item nav-link">Services</a>
                     <a href="project.html" class="nav-item nav-link">Projects</a>
                     <a href="courses.html" class="nav-item nav-link">Courses</a>
-
-<style>
-        /* Dropdown Menu CSS */
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-        .dropdown-menu {
-            display: none; /* Initially hidden */
-            position: absolute;
-            left: 0;
-            top: 100%;
-            z-index: 1000;
-        }
-        .dropdown-submenu:hover .dropdown-menu {
-            display: block; /* Show submenu on hover */
-        }
-</style>
                     <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu rounded-0 m-0">
@@ -540,6 +564,33 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
+     <script>
+        // Function to toggle dropdown menus
+        function toggleDropdown(event, element) {
+            event.preventDefault(); // Prevent the default action of the anchor tag
+            const parent = element.parentElement;
+            const isActive = parent.classList.contains('show');
 
-	</html>
+            // Close any open dropdowns at the same level
+            document.querySelectorAll('.dropdown.show, .dropdown-submenu.show').forEach(dropdown => {
+                dropdown.classList.remove('show');
+            });
+
+            // If the clicked dropdown is not already active, activate it
+            if (!isActive) {
+                parent.classList.add('show');
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function (event) {
+            const dropdowns = document.querySelectorAll('.dropdown, .dropdown-submenu');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('show');
+                }
+            });
+        });
+     </script>
+</body>
+</html>
