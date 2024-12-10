@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Video Frame</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <!-- Video Frame -->
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-3xl">
+        <!-- Frame Header -->
+        <div class="bg-blue-600 text-white px-4 py-2 text-lg font-semibold">
+            🎥 Watch the Video
+        </div>
+
+        <!-- Video Player -->
+        <div class="relative bg-black">
+            <video controls autoplay muted class="w-full">
+                <source src="your-video.mp4" type="video/mp4">
+                <!-- Fallback message -->
+                Your browser does not support the video tag.
+            </video>
+            <!-- Overlay Play Button (optional) -->
+            <div class="absolute inset-0 flex items-center justify-center text-white hover:bg-black hover:bg-opacity-50 cursor-pointer">
+                <!-- Uncomment if you want a custom play button
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg">
+                    ▶ Play
+                </button> 
+                -->
+            </div>
+        </div>
+
+        <!-- Video Description -->
+        <div class="px-4 py-2 text-gray-800">
+            <h3 class="text-xl font-bold">Video Title</h3>
+            <p class="mt-2 text-sm text-gray-600">
+                This is a sample description for the video. Enjoy watching this beautiful content in our modern, responsive video frame!
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
