@@ -4,113 +4,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBV Network</title>
-    <!-- Tailwind CSS CDN -->
+    <title>MBV Study Material Class 10th</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Favicon -->
-    <link rel="icon" href="img/favicon.ico">
+    <style>
+        .video-frame {
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .video-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-frame iframe {
+            width: 100%;
+            height: 50%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .video-frame:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Modal Video Container */
+        .modal-video-container {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        .modal-video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+<body class="bg-gray-100">
+    <div class="container py-5">
+        <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">MBV Study Material Class 10th</h1>
 
-    <!-- Header -->
-    <header class="bg-gray-900 text-white">
-        <div class="container mx-auto px-6 py-4">
-            <h1 class="text-4xl font-bold">MBV Network</h1>
-            <p class="text-gray-300 mt-2">Your trusted partner for all things digital.</p>
+        <!-- Video Grid -->
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <!-- Example Video Frame -->
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=e4a20684-5d8f-45e7-945e-64a5669d2f19&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>English - A letter to God</b></p>
+            </div>
+            <!-- Repeat Frames -->
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=1638b598-fad9-4a2e-930b-a76165567d6e&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>English - Nelson Mandela by Magnolia Mam</b></p>
+            </div>
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=a9033b7a-9173-4b8c-9b1b-08757788fc73&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>English - From the diary of Anny Frank</b></p>
+            </div>
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=6a88e662-3908-4f31-81dc-afed95677e2c&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>English - Midnight Visitors</b></p>
+            </div>
+            <!-- Add more frames as needed -->
         </div>
-    </header>
+		<!-- Video Grid -->
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <!-- Example Video Frame -->
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=640e112b-8894-4cae-995b-96e77051cbe7&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>English, The Thief Story</b></p>
+            </div>
+            <!-- Repeat Frames -->
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=ec0e18e3-3ba6-4806-8b8c-ca6ccf22de64&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>Lecture 1 English, Two story about Flying</b></p>
+            </div>
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=fe484db3-01f4-4742-add3-53e105bc3af3&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>Hindi, Saakhi (kabir)</b></p>
+            </div>
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=808a48f6-ce89-4b9e-9ded-759be5a6e29a&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>Hindi, Saakhi (Meera)</p>
+            </div>
+            <!-- Add more frames as needed -->
+        </div>
+        <!-- Video Grid -->
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <!-- Example Video Frame -->
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=04e136f0-95d8-4a92-98cf-9999eb5a9a84&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>Polynomial by Shobhit Bhaiya</b></p>
+            </div>
+            <!-- Repeat Frames -->
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=4752088f-7dff-455d-9fb3-62e7594fdf31&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>Science, Chemical Reactions and Equation-I</b></p>
+            </div>
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=862b858d-849c-4908-aefc-3e8ee8bd4950&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>SST - The Rise of nationalism in Europe</b></p>
+            </div>
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=d87b588c-d6dc-4eb3-9a1c-00e3ce8ee832&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>SST - Resources and Development</b></p>
+            </div>
+            <!-- Add more frames as needed -->
+        </div>
+        <!-- Video Grid -->
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <!-- Example Video Frame -->
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=cbf1479b-d397-4913-be02-ba6136f5de3c&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600">SST, Civics - Power Sharing</p>
+            </div>
+            <!-- Repeat Frames -->
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=503d8934-d7bd-405a-b0b9-d9044546ebc6&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>Pair of Linear Equation in 2 Variables</b></p>
+            </div>
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://www.youtube.com/embed/VIDEO_ID_3' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>Poetic Devices by Magnolia Mam</b></p>
+            </div>
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=f7954e39-dc33-413a-9967-6b2a83189d87&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>Poetic Devices by Magnolia Mam</b></p>
+            </div>
+            <!-- Add more frames as needed -->
+        </div>
+        <!-- Video Grid -->
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <!-- Example Video Frame -->
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=d53b71a5-6061-485a-944b-8ae1df3b6b8b&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>Science, Chapter - Life Process</b></p>
+            </div>
+            <!-- Repeat Frames -->
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=3b9c5065-9f9f-48f7-9831-c584b5f1c344&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>SST - The Rise of nationalism in Europe</b></p>
+            </div>
+            <div class="col">
+                <div class="video-frame bg-gray-300 shadow" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    data-video="<iframe src='https://akshitbot506-my.sharepoint.com/personal/blackmamba1_akshitbot_me/_layouts/15/embed.aspx?UniqueId=c0e6eb6d-f072-4372-ac68-69176e7cdbe6&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create' frameborder='0' allowfullscreen></iframe>">
+                    <img src="https://via.placeholder.com/200" alt="Video Thumbnail">
+                </div>
+                <p class="text-center mt-3 text-gray-600"><b>English, Fire and Ice by Magnolia Mam</b></p>
+            </div>
+            <!-- Add more frames as needed -->
+        </div>
 
-    <!-- Classes Section -->
-    <section class="container mx-auto px-6 py-10">
-        <h2 class="text-3xl font-semibold text-center text-gray-800 mb-6">Visit Our Classes</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img class="w-full h-40 object-cover" src="img/portfolio-1.jpg" alt="Physics">
-                <div class="p-4">
-                    <h3 class="text-lg font-medium text-gray-800">Physics</h3>
-                    <a href="classes/clten.html" class="text-blue-500 mt-2 inline-block">Learn More</a>
-                </div>
-            </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img class="w-full h-40 object-cover" src="img/portfolio-2.jpg" alt="Chemistry">
-                <div class="p-4">
-                    <h3 class="text-lg font-medium text-gray-800">Chemistry</h3>
-                    <a href="classes/clten.html" class="text-blue-500 mt-2 inline-block">Learn More</a>
-                </div>
-            </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img class="w-full h-40 object-cover" src="img/portfolio-3.jpg" alt="Maths">
-                <div class="p-4">
-                    <h3 class="text-lg font-medium text-gray-800">Maths</h3>
-                    <a href="classes/cleleven.html" class="text-blue-500 mt-2 inline-block">Learn More</a>
-                </div>
-            </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img class="w-full h-40 object-cover" src="img/portfolio-3.jpg" alt="Biology">
-                <div class="p-4">
-                    <h3 class="text-lg font-medium text-gray-800">Biology</h3>
-                    <a href="classes/cltwelve.html" class="text-blue-500 mt-2 inline-block">Learn More</a>
-                </div>
-            </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img class="w-full h-40 object-cover" src="img/portfolio-3.jpg" alt="Hindi">
-                <div class="p-4">
-                    <h3 class="text-lg font-medium text-gray-800">Hindi</h3>
-                    <a href="classes/cleleven.html" class="text-blue-500 mt-2 inline-block">Learn More</a>
-                </div>
-            </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img class="w-full h-40 object-cover" src="img/portfolio-3.jpg" alt="English">
-                <div class="p-4">
-                    <h3 class="text-lg font-medium text-gray-800">English</h3>
-                    <a href="classes/cleleven.html" class="text-blue-500 mt-2 inline-block">Learn More</a>
+
+        <!-- Modal for Video Playback -->
+        <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <!--<div class="modal-header border-0">-->
+					    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <!--</div>-->
+                    <div class="modal-body p-0">
+                        <div id="modalVideoContainer" class="modal-video-container">
+                            <!-- The iframe will be injected here -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white mt-10">
-        <div class="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <h3 class="text-xl font-semibold">About MBV Network</h3>
-                <p class="text-gray-300 mt-4">
-                    MBV Network offers web development, web design, content creation, and digital marketing services tailored to your needs.
-                </p>
-                <div class="flex space-x-4 mt-4">
-                    <a href="https://t.me/MBV_NETWORK" class="text-blue-500 text-2xl"><i class="fab fa-telegram"></i></a>
-                    <a href="https://www.instagram.com/mbvnetworkofficial" class="text-pink-500 text-2xl"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div>
-                <h3 class="text-xl font-semibold">Get In Touch</h3>
-                <p class="text-gray-300 mt-4">Feel free to reach out for inquiries or collaborations.</p>
-                <p class="text-gray-300 mt-2"><i class="fas fa-map-marker-alt"></i> Biggarwal Road, Sunam, Punjab, India</p>
-                <p class="text-gray-300 mt-2"><i class="fas fa-envelope"></i> mbvnetworkofficial@gmail.com</p>
-                <a href="https://t.me/MBV_NETWORK" class="text-blue-500 mt-4 inline-block">Contact Us</a>
-            </div>
-            <div>
-                <h3 class="text-xl font-semibold">Newsletter</h3>
-                <p class="text-gray-300 mt-4">Subscribe to our newsletter for updates and offers.</p>
-                <form class="mt-4">
-                    <input type="email" placeholder="Your Email" class="w-full p-2 rounded-md text-gray-900">
-                    <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md mt-2">Sign Up</button>
-                </form>
-            </div>
-        </div>
-        <div class="text-center text-gray-500 py-4 border-t border-gray-700">
-            © 2024 MBV Network. All rights reserved.
-        </div>
-    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Handle Video Playback in Modal
+        const videoModal = document.getElementById('videoModal');
+        const modalVideoContainer = document.getElementById('modalVideoContainer');
 
-    <!-- Back to Top -->
-    <a href="#" class="fixed bottom-4 right-4 bg-blue-500 text-white p-3 rounded-full shadow-lg">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+        videoModal.addEventListener('show.bs.modal', function (event) {
+            const triggerElement = event.relatedTarget; // Element that triggered the modal
+            const videoEmbedCode = triggerElement.getAttribute('data-video');
 
-    <!-- Font Awesome CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/js/all.min.js"></script>
+            // Inject iframe into the modal container
+            modalVideoContainer.innerHTML = videoEmbedCode;
+        });
+
+        videoModal.addEventListener('hidden.bs.modal', function () {
+            // Clear iframe content when modal is closed
+            modalVideoContainer.innerHTML = '';
+        });
+    </script>
 </body>
 
 </html>
