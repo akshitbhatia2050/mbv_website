@@ -1,188 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <title>MBV - Class 10th Study Material</title>
-    <style>
-        /* Custom styles */
-        body {
-            background-color: #f4f7f9;
-            font-family: 'Arial', sans-serif;
-            padding-top: 20px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MBV Study Material Class 10th</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-        .video-frame {
-            position: relative;
-            cursor: pointer;
-            margin: 15px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 200px; /* Set fixed height for a medium size */
-        }
-
-        .video-frame:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .video-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .video-frame p {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 8px 15px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: bold;
-            display: none;
-        }
-
-        .video-frame:hover p {
-            display: block;
-        }
-
-        /* Responsive grid */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        /* Mobile optimization */
-        @media (max-width: 768px) {
-            .video-frame p {
-                font-size: 12px; /* Slightly smaller text on mobile */
-            }
-        }
-    </style>
+  <style>
+    .video-thumbnail {
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .video-thumbnail:hover {
+      transform: scale(1.05);
+    }
+    
+    .modal-content {
+      background-color: #333;
+      color: white;
+      border-radius: 10px;
+    }
+    
+    .modal-body {
+      padding: 0;
+    }
+    
+    .video-frame {
+      width: 100%;
+      height: 500px;
+      background-color: #000;
+      border-radius: 10px;
+    }
+  </style>
 </head>
-
 <body>
 
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-	    <h1 class="text-center mt-4 mb-4">MBV Class 10th Study Material</h1>
-        <div class="video-grid">
-            <!-- Video Grid (Medium-sized Thumbnails) -->
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://youtu.be/8yQQjECLmUI">
-                <img src="img/Eng - Letter to God.png" alt="Video Thumbnail 1">
-                <p>English - A Letter to God</p>
-            </div>
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%201%20English%20Nelson%20Mandela%20by%20Magnolia%20Mam.mp4">
-                <img src="img/Eng - Nelson Mandela.png" alt="Video Thumbnail 2">
-                <p>English - Nelson Mandela</p>
-            </div>
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%201%20English%2C%20From%20the%20diary%20of%20Anny%20Frank%20by%20Magnolia%20Mam.mp4">
-                <img src="img/Eng - From the diary of Anny Frank.png" alt="Video Thumbnail 3">
-                <p>English - From the dairy of Anny frank</p>
-            </div>
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%201%20English%2C%20Midnight%20Visitors%20by%20Robert%20Arthur.mp4">
-                <img src="img/Eng - Midnight Visitors.png" alt="Video Thumbnail 4">
-                <p>English - Midnight Visitors</p>
-            </div>
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%201%20English%2C%20The%20Thief%20Story%20by%20Ruskin%20Bond.mp4">
-                <img src="img/Eng - The Thief Story.png" alt="Video Thumbnail 5">
-                <p>English - The Thief Story</p>
-            </div>
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%201%20English%2C%20Two%20story%20about%20Flying%20by%20Magnolia%20Mam.mp4">
-                <img src="img/Eng - Two story about Flying.png" alt="Video Thumbnail 6">
-                <p>English - Two story about Flying</p>
-            </div>
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%201%20Hindi%2C%20Saakhi%20(kabir)%20by%20Laali%20Verma%20Mam%20(2).mp4">
-                <img src="img/Hindi - Saakhi Kabir.png" alt="Video Thumbnail 7">
-                <p>Hindi - Saakhi Kabir</p>
-            </div>
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%201%20Hindi%2C%20Saakhi%20(Meera)%20by%20Laali%20Verma%20Mam.mp4">
-                <img src="img/Hindi - Saakhi Meera.png" alt="Video Thumbnail 8">
-                <p>Hindi - Saakhi Meera</p>
-            </div>
-		<div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%201%20Polynomials%20by%20Shobhit%20Bhaiya.mp4">
-                <img src="img/Polynomials.png" alt="Video Thumbnail 1">
-                <p>Polynomials</p>
-            </div>
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%201%20Science%2C%20Chemical%20Reaction%20and%20Equation-1%20by%20Prashant%20Kirad%20Sir.mp4">
-                <img src="img/Chemical Reaction and Equations.png" alt="Video Thumbnail 2">
-                <p>Chemical Reactions and Equations-I</p>
-            </div>
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%201%20SST%2C%20Chapter%20-%20Resources%20and%20Development%20by%20Digraj%20Sir.mp4">
-                <img src="img/Resources and Development.png" alt="Video Thumbnail 3">
-                <p>SST - Resources and Development</p>
-            </div>
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%201%20SST%2C%20Civics%20-%20Power%20Sharing%20by%20Digraj%20Sir.mp4">
-                <img src="img/Civics - Power Saving.png" alt="Video Thumbnail 4">
-                <p>SST - Civics, Power Sharing</p>
-            </div>
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%202%20Pair%20of%20Linear%20Equation%20in%202%20Variables%20by%20Shobhit%20Bhaiya.mp4">
-                <img src="img/Linear Equations.png" alt="Video Thumbnail 5">
-                <p>Pair of Linear Equation in 2 Variables</p>
-            </div>
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%202%20Poetic%20Devices%20by%20Magnolia%20Mam.mp4">
-                <img src="img/Poetic Devices.png" alt="Video Thumbnail 6">
-                <p>Poetic Devices</p>
-            </div>
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%202%20SST%2C%20The%20Rise%20of%20nationalism%20in%20Europe%20by%20Digraj%20Sir.mp4">
-                <img src="img/L2 - Nationalism in Europe.png" alt="Video Thumbnail 7">
-                <p>SST - The rise of Nationalism of Europe</p>
-            </div>
-            <div class="video-frame" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://idoxavb.sufydely.com/Lecture%203%20English%2C%20Fire%20and%20Ice%20by%20Magnolia%20Mam.mp4">
-                <img src="img/Fire and Ice.png" alt="Video Thumbnail 8">
-                <p>English - Fire and Ice</p>
-            </div>
-        </div>
+      <a class="navbar-brand" href="#">MBV Study Material Class 10th</a>
     </div>
+  </nav>
 
-   <!-- Video Modal -->
-    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <video id="videoPlayer" class="w-100" controls>
-                        <source id="videoSource" src="" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-        </div>
+  <!-- Main Content -->
+  <div class="container mt-5">
+    <h2 class="text-center mb-5 text-3xl font-bold">Abhay Batch Videos by MBV Network</h2>
+
+    <!-- Video Grid: 4x4 layout -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+      <!-- Thumbnail 1 -->
+      <div class="col mb-4">
+        <img src="img/Eng - Midnight Visitors.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 1">
+      </div>
+      
+      <!-- Thumbnail 2 -->
+      <div class="col mb-4">
+        <img src="img/Eng - Letter to God.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 2">
+      </div>
+      
+      <!-- Thumbnail 3 -->
+      <div class="col mb-4">
+        <img src="img/Eng - Nelson Mandela.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 3">
+      </div>
+
+      <!-- Thumbnail 4 -->
+      <div class="col mb-4">
+        <img src="img/Eng - From the diary of Anny Frank.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 4">
+      </div>
+
+      <!-- Thumbnail 5 -->
+      <div class="col mb-4">
+        <img src="img/Eng - The Thief Story.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZllXznnBKA" alt="Video Thumbnail 5">
+      </div>
+
+      <!-- Thumbnail 6 -->
+      <div class="col mb-4">
+        <img src="img/Eng - Two story about Flying.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 6">
+      </div>
+
+      <!-- Thumbnail 7 -->
+      <div class="col mb-4">
+        <img src="img/Hindi - Saakhi Kabir.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 7">
+      </div>
+
+      <!-- Thumbnail 8 -->
+      <div class="col mb-4">
+        <img src="img/Hindi - Saakhi Meera.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 8">
+      </div>
+
+      <!-- Thumbnail 9 -->
+      <div class="col mb-4">
+        <img src="img/Polynomials.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 9">
+      </div>
+
+      <!-- Thumbnail 10 -->
+      <div class="col mb-4">
+        <img src="img/Chemical Reaction and Equations.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 10">
+      </div>
+
+      <!-- Thumbnail 11 -->
+      <div class="col mb-4">
+        <img src="img/Resources and Development.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 11">
+      </div>
+
+      <!-- Thumbnail 12 -->
+      <div class="col mb-4">
+        <img src="img/Civics - Power Saving.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 12">
+      </div>
+
+      <!-- Thumbnail 13 -->
+      <div class="col mb-4">
+        <img src="img/Linear Equations.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 13">
+      </div>
+
+      <!-- Thumbnail 14 -->
+      <div class="col mb-4">
+        <img src="img/Poetic Devices.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 14">
+      </div>
+
+      <!-- Thumbnail 15 -->
+      <div class="col mb-4">
+        <img src="img/L2 - Nationalism in Europe.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 15">
+      </div>
+
+      <!-- Thumbnail 16 -->
+      <div class="col mb-4">
+        <img src="img/Fire and Ice.png" class="video-thumbnail" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://go.screenpal.com/watch/cZll6InnBxG" alt="Video Thumbnail 16">
+      </div>
     </div>
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const videoFrames = document.querySelectorAll('.video-frame');
-        const videoSource = document.getElementById('videoSource');
-        const videoPlayer = document.getElementById('videoPlayer');
-        const videoModal = document.getElementById('videoModal');
+  <!-- Video Modal -->
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="videoModalLabel">Study Video</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Video Frame -->
+          <iframe id="videoFrame" class="video-frame" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        videoFrames.forEach(frame => {
-            frame.addEventListener('click', function () {
-                const videoUrl = this.getAttribute('data-video');
-                if (videoUrl) {
-                    videoSource.src = videoUrl;
-                    videoPlayer.load();
-                } else {
-                    console.error("No video URL provided.");
-                }
-            });
-        });
+  <!-- Bootstrap JS, Popper, and jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-        videoModal.addEventListener('hidden.bs.modal', function () {
-            videoPlayer.pause();
-            videoPlayer.currentTime = 0;
-            videoSource.src = '';
-        });
-    </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3071114239856577" crossorigin="anonymous"></script>
+  <script>
+    // Script to load the video dynamically based on the clicked thumbnail
+    const videoThumbnails = document.querySelectorAll('.video-thumbnail');
+    const videoFrame = document.getElementById('videoFrame');
+
+    videoThumbnails.forEach((thumbnail) => {
+      thumbnail.addEventListener('click', function () {
+        const videoSrc = this.getAttribute('data-video');
+        videoFrame.src = videoSrc;
+      });
+    });
+  </script>
+
 </body>
-
 </html>
