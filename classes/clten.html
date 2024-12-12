@@ -143,7 +143,7 @@
         </div>
     </div>
 
-    <!-- Video Modal -->
+   <!-- Video Modal -->
     <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -156,23 +156,32 @@
             </div>
         </div>
     </div>
-	
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Modal Video Handling
         const videoFrames = document.querySelectorAll('.video-frame');
         const videoSource = document.getElementById('videoSource');
         const videoPlayer = document.getElementById('videoPlayer');
+        const videoModal = document.getElementById('videoModal');
 
         videoFrames.forEach(frame => {
             frame.addEventListener('click', function () {
                 const videoUrl = this.getAttribute('data-video');
-                videoSource.src = videoUrl;
-                videoPlayer.load();
+                if (videoUrl) {
+                    videoSource.src = videoUrl;
+                    videoPlayer.load();
+                } else {
+                    console.error("No video URL provided.");
+                }
             });
         });
-    </script>
 
+        videoModal.addEventListener('hidden.bs.modal', function () {
+            videoPlayer.pause();
+            videoPlayer.currentTime = 0;
+            videoSource.src = '';
+        });
+    </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3071114239856577" crossorigin="anonymous"></script>
 </body>
 
