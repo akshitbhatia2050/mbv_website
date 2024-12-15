@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <!-- Bootstrap CSS for Layout and Styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Sparkles Effect */
+        .sparkle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+            animation: sparkleAnimation 2s infinite;
+        }
+
+        /* Sparkles Sizes */
+        .sparkle-small {
+            width: 10px;
+            height: 10px;
+        }
+
+        .sparkle-medium {
+            width: 20px;
+            height: 20px;
+        }
+
+        .sparkle-large {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Sparkles for Various Sizes */
+        .sparkle-small-1 {
+            top: 5%;
+            left: 10%;
+            --x: 80px;
+            --y: 40px;
+            animation-duration: 2.5s;
+        }
+
+        .sparkle-small-2 {
+            top: 18%;
+            left: 60%;
+            --x: -60px;
+            --y: -30px;
+            animation-duration: 3.0s;
+        }
+
+        .sparkle-small-3 {
+            top: 32%;
+            left: 80%;
+            --x: 40px;
+            --y: -70px;
+            animation-duration: 2.8s;
+        }
+
+        .sparkle-medium-1 {
+            top: 10%;
+            left: 75%;
+            --x: -100px;
+            --y: 50px;
+            animation-duration: 3.0s;
+        }
+
+        .sparkle-medium-2 {
+            top: 55%;
+            left: 30%;
+            --x: 60px;
+            --y: -100px;
+            animation-duration: 2.6s;
+        }
+
+        .sparkle-medium-3 {
+            top: 65%;
+            left: 45%;
+            --x: -150px;
+            --y: 120px;
+            animation-duration: 2.7s;
+        }
+
+        .sparkle-large-1 {
+            top: 20%;
+            left: 50%;
+            --x: 120px;
+            --y: 60px;
+            animation-duration: 2.2s;
+        }
+
+        .sparkle-large-2 {
+            top: 75%;
+            left: 70%;
+            --x: -130px;
+            --y: 90px;
+            animation-duration: 3.3s;
+        }
+
+        .sparkle-large-3 {
+            top: 80%;
+            left: 25%;
+            --x: 90px;
+            --y: -50px;
+            animation-duration: 2.9s;
+        }
+
+        /* Additional Sparkles */
+        .sparkle-small-4 {
+            top: 12%;
+            left: 30%;
+            --x: -90px;
+            --y: 60px;
+            animation-duration: 2.3s;
+        }
+
+        .sparkle-small-5 {
+            top: 28%;
+            left: 45%;
+            --x: 70px;
+            --y: -80px;
+            animation-duration: 2.9s;
+        }
+
+        .sparkle-medium-4 {
+            top: 22%;
+            left: 18%;
+            --x: 110px;
+            --y: 50px;
+            animation-duration: 2.7s;
+        }
+
+        .sparkle-medium-5 {
+            top: 38%;
+            left: 78%;
+            --x: -150px;
+            --y: -120px;
+            animation-duration: 3.1s;
+        }
+
+        .sparkle-large-4 {
+            top: 50%;
+            left: 60%;
+            --x: -160px;
+            --y: 90px;
+            animation-duration: 2.5s;
+        }
+
+        .sparkle-large-5 {
+            top: 72%;
+            left: 10%;
+            --x: 130px;
+            --y: -100px;
+            animation-duration: 3.0s;
+        }
+
+        /* Sparkle Positioning and Movement */
+        @keyframes sparkleAnimation {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(var(--x), var(--y));
+            }
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            display: none;
+            z-index: 999;
+        }
+
+        /* Form Container */
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: lightblue;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        /* Body Background */
+        body {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1506707310084-d3e1d3942b59');
+            background-size: cover;
+            background-color: black;
+            background-position: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="form-container">
+            <h2 class="text-center mb-4 text-3xl font-semibold text-gray-800">Signup</h2>
+            <form id="signupForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="mobile" class="form-label">Mobile</label>
+                    <input type="text" class="form-control" id="mobile" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+            </form>
+        </div>
+
+        <div class="notification" id="notification">You have successfully signed up!</div>
+    </div>
+
+    <!-- Sparkles Elements -->
+    <div class="sparkle sparkle-small sparkle-small-1"></div>
+    <div class="sparkle sparkle-small sparkle-small-2"></div>
+    <div class="sparkle sparkle-small sparkle-small-3"></div>
+    <div class="sparkle sparkle-small sparkle-small-4"></div>
+    <div class="sparkle sparkle-small sparkle-small-5"></div>
+    <div class="sparkle sparkle-medium sparkle-medium-1"></div>
+    <div class="sparkle sparkle-medium sparkle-medium-2"></div>
+    <div class="sparkle sparkle-medium sparkle-medium-3"></div>
+    <div class="sparkle sparkle-medium sparkle-medium-4"></div>
+    <div class="sparkle sparkle-medium sparkle-medium-5"></div>
+    <div class="sparkle sparkle-large sparkle-large-1"></div>
+    <div class="sparkle sparkle-large sparkle-large-2"></div>
+    <div class="sparkle sparkle-large sparkle-large-3"></div>
+    <div class="sparkle sparkle-large sparkle-large-4"></div>
+    <div class="sparkle sparkle-large sparkle-large-5"></div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Handle the form submission
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Simulate successful signup
+            document.getElementById('notification').style.display = 'block';
+
+            // Hide the notification after 2 seconds
+            setTimeout(function () {
+                document.getElementById('notification').style.display = 'none';
+                window.location.href = "courses.html";  // Redirect to courses page
+            }, 2000);
+        });
+    </script>
+</body>
+
+</html>
